@@ -28,7 +28,6 @@ function createGalerryMarkup(galleryItems) {
 galerryContainer.addEventListener('click', itemOpener)
 
 
-
 function itemOpener(event) {
     event.preventDefault();
 
