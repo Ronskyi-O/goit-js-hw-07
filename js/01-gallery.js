@@ -23,7 +23,6 @@ function createGalerryMarkup(galleryItems) {
 `;
     })
         .join(" ");
-
 }
 
 galerryContainer.addEventListener('click', itemOpener)
@@ -38,21 +37,25 @@ function itemOpener(event) {
     }
 
     const bigImgresolution = event.target.dataset.source
- 
-
     const instance = basicLightbox.create(`<img src="${bigImgresolution}" width="800" height="600">`)
+
     instance.show()
-    // const visible = instance.visible()
-    // if (visible) {
-    //     window.addEventListener('keydown', pressEscToclose)
-    // }
+
+
+    const visible = instance.visible()
+    if (visible) {
+        window.addEventListener('keydown', pressEscToclose)
+    }
+
+    function pressEscToclose(event) {
+    if (event.code === 'Escape') {
+        instance.close()
+        } 
+         window.removeEventListener('keydown', pressEscToclose)
+    }
    
 
 }
 
-// function pressEscToclose(event) {
-//     if (event.code === 'Escape') {
-//     }
-// }
 
-// instance.close(() =>  )
+
